@@ -1,0 +1,77 @@
+# 创建项目
+vue create hk-guide
+
+# 进入项目目录
+cd hk-guide
+
+# 安装必要的依赖
+npm install element-plus @element-plus/icons-vue vue-router axios pinia sass
+
+# 安装开发依赖
+npm install -D @vitejs/plugin-vue eslint eslint-plugin-vue sass
+
+# 启动开发服务器
+npm run dev
+
+mkdir -p src/{components,views,router,data,styles}
+
+# 检查 Node.js 版本
+node -v
+
+# 检查 npm 版本
+npm -v
+
+# 在终端中找到 npm 的具体位置
+which npm
+
+# 清除 npm 缓存
+npm cache clean --force
+
+# 重新设置镜像并安装
+npm config set registry https://registry.npmmirror.com
+npm install -g npm
+
+# 验证是否设置成功
+npm config get registry
+
+# 安装 cnpm
+npm install -g cnpm --registry=https://registry.npmmirror.com
+
+# 然后使用 cnpm 安装依赖
+cnpm install
+
+# 停止当前服务（如果正在运行）
+# 按 Ctrl+C
+
+# 删除 node_modules
+rm -rf node_modules
+
+# 删除 package-lock.json
+rm package-lock.json
+
+# 重新安装依赖
+npm install
+
+# 启动开发服务器
+npm run dev
+
+# 检查项目结构
+ls -R src/
+
+# 如果目录不存在，创建必要的目录
+mkdir -p src/{components,views,router,data}
+
+# 安装主要依赖
+npm install mitt pinia @vueuse/core sass
+
+# 如果之前没有安装 Element Plus 的话，也需要安装
+npm install element-plus @element-plus/icons-vue
+
+# 创建图片目录
+mkdir -p src/img
+
+# 安装 date-fns
+npm install date-fns
+
+# 安装 gh-pages 包
+npm install --save-dev gh-pages

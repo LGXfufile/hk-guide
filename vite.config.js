@@ -3,7 +3,7 @@ import vue from '@vitejs/plugin-vue'
 import path from 'path'
 
 export default defineConfig({
-  base: '/your-repo-name/',
+  base: '/hk-guide/',
   plugins: [vue()],
   resolve: {
     alias: {

@@ -1,0 +1,1 @@
+import{C as e}from"./CategoryPage-b403c10d.js";import{o,c as r}from"./index-c24138df.js";import"./categories-ef1ca004.js";const m={__name:"Life",setup(t){return(a,c)=>(o(),r(e))}};export{m as default};

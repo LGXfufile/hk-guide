@@ -1,0 +1,1 @@
+import{C as o}from"./CategoryPage-b403c10d.js";import{o as r,c as t}from"./index-c24138df.js";import"./categories-ef1ca004.js";const m={__name:"Education",setup(a){return(e,c)=>(r(),t(o))}};export{m as default};

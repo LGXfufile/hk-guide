@@ -1,32 +1,20 @@
 <template>
-  <div class="lazy-image-container" :style="{ height }">
-    <!-- 加载占位 -->
-    <div v-if="loading" class="image-placeholder">
-      <el-skeleton-item variant="image" :style="{ width: '100%', height }" />
-    </div>
-    
-    <!-- 错误显示 -->
-    <div v-if="error" class="image-error">
-      <el-icon><PictureFilled /></el-icon>
-      <span>图片加载失败</span>
-    </div>
-
-    <!-- 实际图片 -->
+  <div class="lazy-image" :style="{ height }">
     <img
-      v-show="!loading && !error"
-      :src="currentSrc"
+      :src="src"
       :alt="alt"
-      class="lazy-image"
       @load="handleLoad"
-      @error="handleError"
-      :style="imageStyle"
+      :class="{ loaded: isLoaded }"
     />
+    <div class="loading-placeholder" v-if="!isLoaded">
+      <el-icon class="loading"><Loading /></el-icon>
+    </div>
   </div>
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue'
-import { useIntersectionObserver } from '@vueuse/core'
+import { ref } from 'vue'
+import { Loading } from '@element-plus/icons-vue'
 
 const props = defineProps({
   src: {
@@ -39,93 +27,55 @@ const props = defineProps({
   },
   height: {
     type: String,
-    default: '200px'
-  },
-  objectFit: {
-    type: String,
-    default: 'cover'
+    default: 'auto'
   }
 })
 
-const loading = ref(true)
-const error = ref(false)
-const currentSrc = ref('')
-const imageRef = ref(null)
-
-const imageStyle = computed(() => ({
-  objectFit: props.objectFit,
-  width: '100%',
-  height: props.height
-}))
+const isLoaded = ref(false)
 
 const handleLoad = () => {
-  loading.value = false
+  isLoaded.value = true
 }
-
-const handleError = () => {
-  loading.value = false
-  error.value = true
-}
-
-const loadImage = () => {
-  const img = new Image()
-  img.src = props.src
-  currentSrc.value = props.src
-}
-
-// 使用 Intersection Observer 实现懒加载
-const { stop } = useIntersectionObserver(
-  imageRef,
-  ([{ isIntersecting }]) => {
-    if (isIntersecting) {
-      loadImage()
-      stop()
-    }
-  },
-  { threshold: 0.1 }
-)
-
-onMounted(() => {
-  if ('loading' in HTMLImageElement.prototype) {
-    // 原生懒加载支持
-    imageRef.value?.setAttribute('loading', 'lazy')
-    loadImage()
-  }
-})
 </script>
 
 <style scoped>
-.lazy-image-container {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-}
-
-.image-placeholder {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #f5f7fa;
-}
-
-.image-error {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: #f5f7fa;
-  color: #909399;
-  font-size: 14px;
-}
-
 .lazy-image {
+  position: relative;
+  overflow: hidden;
+  background: #f5f5f5;
+  width: 100%;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
   transition: opacity 0.3s ease;
+}
+
+img.loaded {
+  opacity: 1;
+}
+
+.loading-placeholder {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.loading {
+  font-size: 24px;
+  animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 </style> 

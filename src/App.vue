@@ -33,7 +33,7 @@
           </router-view>
         </el-main>
         <el-footer>
-          <nav-footer />
+          <app-footer />
         </el-footer>
       </el-container>
       <back-to-top />
@@ -45,8 +45,8 @@
 import { ref, provide, onMounted } from 'vue'
 import zhCn from 'element-plus/es/locale/lang/zh-cn'
 import NavHeader from './components/NavHeader.vue'
-import NavFooter from './components/NavFooter.vue'
 import BackToTop from './components/BackToTop.vue'
+import AppFooter from './components/AppFooter.vue'
 
 const locale = zhCn
 const isDark = ref(false)

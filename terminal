@@ -143,6 +143,7 @@ npm run deploy -- -m "Deploy to GitHub Pages"
 rm -rf dist
 
 # 重新构建和部署
+npm run build
 npm run deploy
 
 # 确保本地更改已提交
@@ -152,3 +153,30 @@ git push origin main
 
 # 删除远程的 gh-pages 分支
 git push origin --delete gh-pages
+
+# 创建 public/img 目录
+mkdir -p public/img
+
+# 如果你的图片在 src/img 目录，移动它们到 public/img
+mv src/img/* public/img/
+
+# 确保图片在正确的位置
+mkdir -p public/img
+
+# 清理构建文件
+rm -rf dist
+
+# 重新构建
+npm run build
+
+# 本地预览构建结果
+npm run preview
+
+# 如果预览正常，再部署
+npm run deploy
+
+# 确保 public/img 目录存在
+mkdir -p public/img
+
+# 检查图片是否在正确位置
+ls public/img

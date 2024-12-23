@@ -99,16 +99,17 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 import { IMAGES } from '../constants/images'
 import LazyImage from '../components/LazyImage.vue'
+import { ArrowRight } from '@element-plus/icons-vue'
 
 // 快速导航数据
 const quickNavItems = ref([
   { title: '景点门票', icon: 'Ticket' },
-  { title: '美食推荐', icon: 'Food' },
+  { title: '美食推荐', icon: 'Bowl' },
   { title: '交通指南', icon: 'Location' },
-  { title: '购物指南', icon: 'ShoppingBag' }
+  { title: '购物指南', icon: 'ShoppingCart' }
 ])
 
 // 轮播图数据
@@ -138,7 +139,7 @@ const mainCategories = ref([
     description: '从繁华都市到自然风光，香港处处充满惊喜',
     features: [
       { icon: 'Ticket', text: '景点门票' },
-      { icon: 'Guide', text: '当地向导' },
+      { icon: 'User', text: '当地向导' },
       { icon: 'Camera', text: '摄影圣地' }
     ],
     image: IMAGES.categories[0].image
@@ -148,7 +149,7 @@ const mainCategories = ref([
     title: '舌尖上的香港',
     description: '探索米其林星级餐厅到地道街边小食',
     features: [
-      { icon: 'Food', text: '特色美食' },
+      { icon: 'Bowl', text: '特色美食' },
       { icon: 'Shop', text: '推荐餐厅' },
       { icon: 'Star', text: '米其林推荐' }
     ],
@@ -177,17 +178,13 @@ const hotItems = ref([
   },
   {
     title: '米其林星级餐厅',
-    description: '品味香港顶级美食，感受独特的饮食文化',
+    description: '品味香港顶级美食，感受独特的食文化',
     image: IMAGES.carousel[2].image,
     tag: '美食',
     tagType: 'danger',
     category: '餐厅'
   }
 ])
-
-const baseUrl = computed(() => {
-  return import.meta.env.MODE === 'production' ? '/hk-guide/' : '/'
-})
 </script>
 
 <style scoped>

@@ -35,13 +35,18 @@
       <div class="footer-section">
         <h3>关注我们</h3>
         <div class="social-icons">
-          <el-icon><Monitor /></el-icon>
-          <el-icon><ChatDotRound /></el-icon>
+          <div class="social-icon">
+            <el-icon><Monitor /></el-icon>
+          </div>
+          <div class="social-icon">
+            <el-icon><ChatDotRound /></el-icon>
+          </div>
           <a href="https://www.xiaohongshu.com/user/profile/616422bc000000000202730a" 
              target="_blank" 
              rel="noopener noreferrer"
-             class="social-link">
-            <el-icon><Share /></el-icon>
+             class="social-icon social-link"
+             title="访问小红书主页">
+            <el-icon><Promotion /></el-icon>
           </a>
         </div>
       </div>
@@ -55,7 +60,7 @@
 </template>
 
 <script setup>
-import { Message, Phone, Monitor, ChatDotRound, Share } from '@element-plus/icons-vue'
+import { Message, Phone, Monitor, ChatDotRound, Promotion } from '@element-plus/icons-vue'
 </script>
 
 <style scoped>
@@ -125,25 +130,37 @@ import { Message, Phone, Monitor, ChatDotRound, Share } from '@element-plus/icon
 .social-icons {
   display: flex;
   gap: 20px;
+  align-items: center;
 }
 
-.social-icons .el-icon,
-.social-icons .social-link {
-  font-size: 24px;
-  color: #666;
+.social-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.social-icon .el-icon {
+  font-size: 20px;
+  color: #666;
 }
 
 .social-link {
   text-decoration: none;
-  display: flex;
-  align-items: center;
 }
 
-.social-icons .el-icon:hover,
-.social-icons .social-link:hover {
-  color: var(--el-color-primary);
+.social-icon:hover {
+  background: var(--el-color-primary);
+  transform: translateY(-2px);
+}
+
+.social-icon:hover .el-icon {
+  color: white;
 }
 
 .copyright {

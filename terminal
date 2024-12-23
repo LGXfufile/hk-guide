@@ -138,3 +138,9 @@ npm run build
 
 # 部署到 GitHub Pages
 npm run deploy
+
+# 清理之前的构建
+rm -rf dist
+
+# 重新构建和部署
+npm run deploy

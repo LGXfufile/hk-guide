@@ -1,0 +1,1 @@
+const t={travel:{title:"旅游攻略",icon:"Ticket",image:"https://picsum.photos/800/600?random=1",items:[{title:"香港旅游攻略",link:"/travel/guide"},{title:"香港景点推荐",link:"/travel/attractions"}]},life:{title:"生活指南",icon:"Service",image:"https://picsum.photos/800/600?random=2",items:[{title:"香港生活攻略",link:"/life/guide"},{title:"香港交通指南",link:"/life/transport"}]}};export{t as c};

@@ -1,0 +1,1 @@
+import{C as o}from"./CategoryPage-185077c8.js";import{o as r,c as e}from"./index-baf87c45.js";import"./categories-ef1ca004.js";const m={__name:"Shopping",setup(t){return(a,p)=>(r(),e(o))}};export{m as default};

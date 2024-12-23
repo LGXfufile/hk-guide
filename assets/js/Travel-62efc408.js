@@ -1,0 +1,1 @@
+import{C as r}from"./CategoryPage-185077c8.js";import{o as e,c as o}from"./index-baf87c45.js";import"./categories-ef1ca004.js";const m={__name:"Travel",setup(a){return(t,c)=>(e(),o(r))}};export{m as default};

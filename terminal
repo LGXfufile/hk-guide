@@ -137,10 +137,18 @@ npm run preview
 npm run build
 
 # 部署到 GitHub Pages
-npm run deploy
+npm run deploy -- -m "Deploy to GitHub Pages"
 
 # 清理之前的构建
 rm -rf dist
 
 # 重新构建和部署
 npm run deploy
+
+# 确保本地更改已提交
+git add .
+git commit -m "Update deployment configuration"
+git push origin main
+
+# 删除远程的 gh-pages 分支
+git push origin --delete gh-pages

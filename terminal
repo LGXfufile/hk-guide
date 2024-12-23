@@ -132,3 +132,9 @@ npm install
 # 本地测试构建
 npm run build
 npm run preview
+
+# 构建项目
+npm run build
+
+# 部署到 GitHub Pages
+npm run deploy

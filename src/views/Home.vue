@@ -99,7 +99,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { IMAGES } from '../constants/images'
 import LazyImage from '../components/LazyImage.vue'
 
@@ -184,6 +184,10 @@ const hotItems = ref([
     category: '餐厅'
   }
 ])
+
+const baseUrl = computed(() => {
+  return import.meta.env.MODE === 'production' ? '/hk-guide/' : '/'
+})
 </script>
 
 <style scoped>
